@@ -1,0 +1,27 @@
+extends layout.jade
+
+
+block variables
+  - var title = 'Вакансия'
+  - var page = 'vacancy'
+  
+block content
+  // VACANCY
+  section
+    .container
+      .row
+        .col-10
+          h1
+            span #{vacancy.title}
+        .col-6
+          .vacancy-text !{vacancy.text}
+        
+        .col-6
+          blockquote(data-aos='fade-left')
+            //- images/clients/logo-onetwotrip.png
+            img(src='#{company.img}', alt='')
+            p #{company.desc}
+            a(href='#{company.href}') #{company.link}
+            
+          .form(data-aos='fade-up')
+            include form

@@ -1,0 +1,84 @@
+extends layout.jade
+
+
+
+block variables
+  - var title = 'Главная'
+  - var page = 'home'
+
+block content
+  // ABOUT
+  section
+    .container
+      .row
+        .col-10
+          h1
+            span Reqtario — реклама вакансий на основе данных
+      // ILL-1
+      .row.align-items-center(data-aos='fade-right')
+        .col-3
+          img.iilustration(src='/img/iilustration_1.png')
+        .col-6
+          h3 Интеллектуальный анализ данных
+          p
+            | Мы используем технологии машинного обучения для показа вакансий нужным людям в нужное время.
+      // ILL-2
+      .row.align-items-center(data-aos='fade-left')
+        .col-6.offset-3
+          h3 Охват целевой аудитории на всех digital-платформах
+          p
+            | Мы рекламируем вакансии на всех доступных медиаплатформах: социальные сети, приложения, форумы, сайты электронной коммерции.
+        .col-3
+          img.iilustration(src='/img/iilustration_2.png')
+      // ILL-3
+      .row.align-items-center(data-aos='fade-right')
+        .col-3
+          img.iilustration(src='/img/iilustration_3.png')
+        .col-6
+          h3 Умный таргетинг
+          p
+            | Наша реклама таргетируется на аудиторию, находящуюся в активном поиске, и на тех, кто потенциально готов сменить работу.
+  // CLIENTS
+  section
+    .container
+      .row
+        .col-12
+          h2(data-aos='fade-up') Нам доверяют лучшие
+        .col-12
+          ul.clients.clearfix
+            li(data-aos='fade-in')
+              a(href='#')
+                img(src='/images/clients/logo-sberbank.png', alt='')
+            li(data-aos='fade-in')
+              a(href='#')
+                img(src='/images/clients/logo-tinkoff.png', alt='')
+            li(data-aos='fade-in')
+              a(href='#')
+                img(src='/images/clients/logo-raiffeisen.png', alt='')
+            li(data-aos='fade-in')
+              a(href='#')
+                img(src='/images/clients/logo-avito.png', alt='')
+            li(data-aos='fade-in')
+              a(href='#')
+                img(src='/images/clients/logo-rosbank.png', alt='')
+            li(data-aos='fade-in')
+              a(href='#')
+                img(src='/images/clients/logo-evotor.png', alt='')
+            li(data-aos='fade-in')
+              a(href='#')
+                img(src='/images/clients/logo-modulbank.png', alt='')
+  // CALLBACK
+  section
+    .container
+      .row
+        .col-12
+          h2(data-aos='fade-up') Хотите работать с нами?
+      .row(data-aos='fade-up')
+        .col-6.offset-3
+          p.center Оставьте почту, и мы напишем вам.
+      .row(data-aos='fade-up')
+        .col-6.offset-3
+          form(method='POST')
+            .callbackme.clearfix
+              input.inpt(type='text', name='email', value='', placeholder='ivanivanov@yandex.ru', required)
+              button.btn(data-remodal-target='callback') Напишите мне
