@@ -1,0 +1,49 @@
+extends layout.jade
+
+
+block variables
+  - var title = 'Админка'
+  - var page = 'admin'
+  
+block content
+  /* script(src='/js/jade.js', charset='utf-8') */
+  
+  
+  // VACANCY
+  section
+    .container
+      .row
+        .col-12
+          
+          
+          form(method='POST', enctype="multipart/form-data")
+            input(type='text', name='vacancy.title', placeholder='Название' required)
+            br
+            input(type='text', name='url', placeholder='URL на вакансию (ТОЛЬКО АНГЛ)' required)
+            br
+            textarea#text(name='vacancy.text', placeholder='Текст вакансии' required)
+            br
+            input(type='file', name='company.img', placeholder='Картинка компании' required)
+            br
+            input(type='text', name='company.desc', placeholder='Описание компании' required)
+            br
+            input(type='text', name='company.link', placeholder='Текст ссылки на компания' required)
+            br
+            input(type='text', name='company.href', placeholder='Ссылка на компанию' required)
+            br
+            button#btn(type='submit') Send
+            
+            .vacancy-text#html
+              
+            script.
+              $(function() {
+                var jade = require("pug");
+                
+                $('#text').on('input propertychange', function() {
+                  var text = jade.render($('#text').val(), {pretty:true});
+                  text = text.replace(/^\n/, '');
+                  $('#html').html(text);
+                });
+                
+
+              })

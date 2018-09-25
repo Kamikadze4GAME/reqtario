@@ -6,7 +6,8 @@ var logger = require('morgan');
 var expressMongoDb = require('express-mongo-db');
 
 var indexRouter        = require('./routes/index');
-var vacancyouter        = require('./routes/vacancy');
+var vacancyRouter        = require('./routes/vacancy');
+var adminRouter        = require('./routes/admin');
 
 
 var app = express();
@@ -23,9 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressMongoDb('mongodb://localhost/reqtario'));
 
 
+
 // ROUTES
 app.use('/', indexRouter);
-app.use('/vacancies', vacancyouter);
+app.use('/vacancies', vacancyRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
