@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+  console.log('Callback');
   let form = new formidable({
     keepExtensions: true,
     maxFileSize: 20 * 1024 * 1024 // 20 Mb

@@ -114,7 +114,7 @@ router.get('/lists', function(req, res, next) {
         }
       ])
       .toArray(),
-      callbacks: req.db.collection('callbacks').toArray(),
+      callbacks: req.db.collection('callbacks').find().toArray(),
       vacancies: req.db.collection('vacancies').find().toArray()
   })
   .then(result => {
