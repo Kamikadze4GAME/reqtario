@@ -331,7 +331,7 @@ section {
   width: calc((100% - 80px * 3) / 3);
   /* margin-right: 100px;
   margin-bottom: 40px; */
-  margin: 330px 40px;
+  margin: 30px 40px;
 }
 .clients li:nth-child(3n) {
   /* margin-right: 0; */
