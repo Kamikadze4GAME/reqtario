@@ -30,6 +30,8 @@ app.use('/', indexRouter);
 app.use('/vacancies', vacancyRouter);
 app.use('/admin', adminRouter);
 
+app.locals.moment = require('moment');
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

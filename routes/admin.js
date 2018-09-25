@@ -82,18 +82,42 @@ router.post('/', function(req, res, next) {
 router.get('/lists', function(req, res, next) {
 
   Promise.props({
-    cvs: req.db.collection('cvs').find()
-    // .aggregate([
-    //   $lookup: {
-    //     from: 'vacancies',
-    //     foreign
-    //   }
-    // ])
+    cvs: req.db.collection('cvs')
+    // .find()
+      .aggregate([
+        {
+          $lookup: {
+            from: 'vacancies',
+            foreignField: '_id',
+            localField: 'vacancy',
+            as: 'vacancy'
+          }
+        },
+        {
+          $unwind: '$vacancy'
+        }
+      ])
+      .toArray()
     ,
-    forms: req.db.collection('forms').find().toArray()
+    forms: req.db.collection('forms')
+      .aggregate([
+        {
+          $lookup: {
+            from: 'vacancies',
+            foreignField: '_id',
+            localField: 'vacancy',
+            as: 'vacancy'
+          }
+        },
+        {
+          $unwind: '$vacancy'
+        }
+      ])
+      .toArray(),
+      vacancies: req.db.collection('vacancies').find().toArray()
   })
   .then(result => {
-    console.log(result);
+    res.render('admin.list.jade', {data:result});
   })
   .catch(err => {
     next(err);

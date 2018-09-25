@@ -20,6 +20,7 @@ html {
 }
 
 .container {
+  min-width: 960px !important;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;

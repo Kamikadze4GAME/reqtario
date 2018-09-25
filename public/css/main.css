@@ -1,6 +1,6 @@
 /* BASE */
 html, body {
-
+  min-width: 992px;
 }
 
 .clearfix:after {

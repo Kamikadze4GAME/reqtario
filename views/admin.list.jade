@@ -1,0 +1,83 @@
+extends layout.jade
+
+
+block variables
+  - var title = 'Админка'
+  - var page = 'admin'
+  //- - var data = {cvs,forms}
+block content
+
+  
+  // VACANCY
+  section
+    .container
+      .row
+        .col-12
+          h2 Вакансии
+          style.
+            table, th, td {
+             border: 1px solid black;
+            }
+          table
+            tr
+              th #
+              th _id
+              th link
+            each vacancy,index in data.vacancies
+               tr
+                 td= (index + 1)
+                 td= vacancy._id
+                 td
+                   a(href='/vacancies/#{vacancy.url}')= vacancy.vacancy.title
+                 
+        .col-12
+          h2 CVs
+          style.
+            table, th, td {
+             border: 1px solid black;
+            }
+          table
+            tr
+              th #
+              th _id
+              th date
+              th file
+              th vacancy
+            each cv,index in data.cvs
+               tr
+                 td= (index + 1)
+                 td= cv._id
+                 td= moment(cv.date).format('MM/DD/YYYY hh:mm:ss')
+                 td= cv.file
+                 td
+                   a(href='/vacancies/#{cv.vacancy.url}')= cv.vacancy.vacancy.title
+                 
+        .col-12
+          h2 FORMs
+          style.
+            table, th, td {
+             border: 1px solid black;
+            }
+          table
+            tr
+              th #
+              th _id
+              th date
+              th email
+              th fio
+              th phone
+              th link
+              th socs
+              th vacancy
+            each form,index in data.forms
+               tr
+                 td= (index + 1)
+                 td= form._id
+                 td= moment(form.date).format('MM/DD/YYYY hh:mm:ss')
+                 td= form.email
+                 td= form.fio
+                 td= form.phone
+                 td= form.link
+                 td= form.socs
+                 td
+                   a(href='/vacancies/#{form.vacancy.url}')= form.vacancy.vacancy.title
