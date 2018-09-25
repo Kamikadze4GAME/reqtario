@@ -82,12 +82,14 @@ router.post('/', function(req, res, next) {
 router.get('/lists', function(req, res, next) {
 
   Promise.props({
-    cvs: req.db.collection('cvs').find().aggregate([
-      $lookup: {
-        from: 'vacancies',
-        foreign
-      }
-    ]),
+    cvs: req.db.collection('cvs').find()
+    // .aggregate([
+    //   $lookup: {
+    //     from: 'vacancies',
+    //     foreign
+    //   }
+    // ])
+    ,
     forms: req.db.collection('forms').find().toArray()
   })
   .then(result => {
