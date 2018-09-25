@@ -81,3 +81,22 @@ block content
                  td= form.socs
                  td
                    a(href='/vacancies/#{form.vacancy.url}')= form.vacancy.vacancy.title
+        
+        .col-12
+          h2 CALLBACKs
+          style.
+            table, th, td {
+             border: 1px solid black;
+            }
+          table
+            tr
+              th #
+              th _id
+              th date
+              th email
+            each callback,index in data.callbacks
+               tr
+                 td= (index + 1)
+                 td= callback._id
+                 td= moment(callback.date).format('MM/DD/YYYY hh:mm:ss')
+                 td= callback.email

@@ -328,12 +328,13 @@ section {
 }
 .clients li {
   float: left;
-  width: calc((100% - 100px * 3) / 4);
-  margin-right: 100px;
-  margin-bottom: 40px;
+  width: calc((100% - 80px * 3) / 3);
+  /* margin-right: 100px;
+  margin-bottom: 40px; */
+  margin: 30px 40px;
 }
-.clients li:nth-child(4) {
-  margin-right: 0;
+.clients li:nth-child(3n) {
+  /* margin-right: 0; */
 }
 
 .clients a {
@@ -341,7 +342,9 @@ section {
 }
 .clients img {
   display: block;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 50px;
 }
 
 /* CALLBACK */
