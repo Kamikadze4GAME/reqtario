@@ -85,7 +85,7 @@ router.get('/:vac_id', function(req, res, next) {
       }
       res2.vacancy.id = res2._id;
       res2.vacancy.text = jade.render(res2.vacancy.text || '', {pretty:true});
-      res2.company.img = (res2.company.img||'').replce(uploadDir, '/uploads/');
+      res2.company.img = (res2.company.img||'').replace(uploadDir, '/uploads/');
       res.render('vacancy', res2);
     })
     .catch(err2 => {
