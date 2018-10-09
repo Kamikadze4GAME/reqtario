@@ -22,7 +22,21 @@ html.no-js(lang='en')
     | <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     script.
       (function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\\s)no-js(\s|$)/,"$1js$2")})(document,window,0);
+      <!-- Google Tag Manager -->
+    // Google Tag Manager
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KT5BTNM');
+    // End Google Tag Manager
   body
+    // Google Tag Manager (noscript)
+    noscript
+      iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-KT5BTNM', height='0', width='0', style='display:none;visibility:hidden')
+    // End Google Tag Manager (noscript)
+    
     // HEADER
     header
       .container
